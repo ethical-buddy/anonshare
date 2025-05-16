@@ -1,0 +1,12 @@
+{
+  "id": "uuid",
+  "name": "Resource Title",
+  "hash": "sha256:...",
+  "description": "short info",
+  "thumbnail": "base64-encoded jpeg/png",
+  "tags": ["notes", "cse", "semester5"],
+  "size": 1048576,
+  "fileType": "pdf",
+  "lastSeen": 1683948390
+}
+

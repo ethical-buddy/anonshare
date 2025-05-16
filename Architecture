@@ -1,0 +1,14 @@
+ ┌─────────────────────┐
+ │      User GUI/CLI   │ ◄─────> frontend (Wails/Tauri or tview)
+ └─────────────────────┘
+           │
+           ▼
+ ┌─────────────────────┐
+ │   Core Daemon/API   │ ◄─────> Go service
+ └─────────────────────┘
+     │       │        │
+     ▼       ▼        ▼
+ Metadata  P2P Comm  File Store
+Manager    Engine     (encrypted)
+(libp2p)  (QUIC/uTP)  (local FS)
+
