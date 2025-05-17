@@ -1,0 +1,6 @@
+{
+  "debug": true,
+  "data_dir": "data",
+  "listen_port": 8080,
+  "peer_port": 7070
+}
