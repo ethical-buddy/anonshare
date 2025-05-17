@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/ethical-buddy/anonshare/core"
+	"anonshare/core"
 )
 
 func main() {
