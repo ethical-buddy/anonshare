@@ -1,9 +1,0 @@
-1. Setup project structure & Go modules
-2. Implement: core/app.go, config, logging
-3. Implement: node identity (ephemeral keys)
-4. Implement: metadata format and local DB
-5. Implement: discovery and gossip protocol
-6. Implement: secure file transfer
-7. Add: TUI interface (upload, search, download)
-8. Cross-test 2 local nodes on different ports
-
