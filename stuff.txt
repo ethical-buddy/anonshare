@@ -5,6 +5,10 @@ there will be a re-announce option that they can use which will reannounce thier
 So the node_id will uuidv4 so by reassigning they are updating the ip and port across our backend...
 so uuid will be saved in a .nodeip which it will grab it each time uploading the file...
 
+it is storing local ip so will only currently work on local network...
+
+
+
 
 
 

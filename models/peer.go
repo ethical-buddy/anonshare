@@ -5,9 +5,9 @@ import (
 )
 
 type PeerInfo struct {
-	Peer_ID uint   `json:"peer_id" gorm:"primaryKey"` // hash of the ip and port
+	Peer_ID string `json:"peer_id"`
 	IP   string `json:"ip"`
-	Port int    `json:"port"`
+	Port string    `json:"port"`
 	FilePath  string `json:"file_path"`
 	Filename  string `json:"filename"`
 	Description string `json:"description"`

@@ -25,7 +25,7 @@ func Cli() {
 		log.Fatalf("Error getting absolute path: %v", err)
 	}
 	
-	err = upload.HandleUpload(absolutePath, *description)
+	err = upload.HandleUpload(absolutePath, *description,)
 	if err != nil {
 		log.Fatalf("Upload failed: %v", err)
 	}

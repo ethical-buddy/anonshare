@@ -9,7 +9,7 @@ import (
 	"github.com/muskiteer/anonshare/models"
 )
 
-func HandleUpload(filePath string, description string) error {
+func HandleUpload(filePath string, description string,Peer_Port string) error {
 
 	info,err := os.Stat(filePath)
 	if err != nil {
@@ -37,20 +37,26 @@ func HandleUpload(filePath string, description string) error {
 		log.Printf("Error detecting file type: %v", err)
 		return err
 	}
+
+	PeerInfo := models.PeerInfo{
+		Peer_ID: internal.GetOrCreateNodeID(),
+		Filename:   info.Name(),
+		Description: description,
+		IP:        internal.GetLocalIP(),
+		Port:      Peer_Port,
+		FilePath:  filePath,
+
+	};
 		
 	
 	Filemetadata:= models.FileMetadata{
 		Hash:        hash_file,
 		Size:        internal.FormatFileSize(info.Size()),
-		Time:        time.Now().Format(time.RFC3339),
+		Time:         info.ModTime().Format(time.RFC3339),
 		Type:        file_type,
-	};
-
-	PeerIndo := models.PeerInfo{
-		Description: description,
+		Peers:    []models.PeerInfo{PeerInfo},
 	};
 
 	
-
 	return nil
 }
