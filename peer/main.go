@@ -4,6 +4,8 @@ import (
 	"log"
 	"os"
 	"github.com/joho/godotenv"
+	"net/http"
+	"github.com/muskiteer/anonshare/peer/cmd"
 )
 
 func main() {
@@ -22,6 +24,12 @@ func main() {
 	}
 	log.Printf("Peer server running on port %s, connecting to backend at %s", PeerPort, BackendUrl)
 
+	err = http.ListenAndServe("0.0.0.0:"+PeerPort, nil)
+	if err != nil {
+		log.Fatalf("Error starting peer server: %v", err)
+	}
+
+	cli.Cli(PeerPort)
 
 }
 

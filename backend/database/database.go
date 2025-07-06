@@ -14,8 +14,8 @@ func InitDatabase() *gorm.DB {
 		log.Fatal("failed to connect database:", err)
 	}
 
-	// Migrate the schema
-	err = db.AutoMigrate(&models.FileMetadata{})
+	// Migrate the schema - order matters for foreign key relationships
+	err = db.AutoMigrate(&models.FileMetadata{}, &models.PeerInfo{})
 	if err != nil {
 		log.Fatal("failed to migrate:", err)
 	}

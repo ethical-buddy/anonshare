@@ -6,10 +6,11 @@ import (
 	"path/filepath"
 
 	// "github.com/muskiteer/anonshare/internal"
+	
 	"github.com/muskiteer/anonshare/peer/upload"
 )
 
-func Cli() {
+func Cli(peerPort string) {
 	// Define CLI flags
 	uploadPath := flag.String("u", "", "File path to upload")
 	description := flag.String("d", "", "File description")
@@ -25,7 +26,7 @@ func Cli() {
 		log.Fatalf("Error getting absolute path: %v", err)
 	}
 	
-	err = upload.HandleUpload(absolutePath, *description,)
+	err = upload.HandleUpload(absolutePath, *description, peerPort)
 	if err != nil {
 		log.Fatalf("Upload failed: %v", err)
 	}

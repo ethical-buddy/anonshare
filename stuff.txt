@@ -7,8 +7,7 @@ so uuid will be saved in a .nodeip which it will grab it each time uploading the
 
 it is storing local ip so will only currently work on local network...
 
-
-
+in peers folder the 0.0.0.0: is hardcoreded so it will be able to listen to every ip
 
 
 
