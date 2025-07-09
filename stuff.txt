@@ -9,6 +9,6 @@ it is storing local ip so will only currently work on local network...
 
 in peers folder the 0.0.0.0: is hardcoreded so it will be able to listen to every ip
 
-
+backend server done with curl request .^. 
 
 
