@@ -11,4 +11,8 @@ in peers folder the 0.0.0.0: is hardcoreded so it will be able to listen to ever
 
 backend server done with curl request .^. 
 
+file name in the peer part is being fetched by the filename given by first uploader -- will be added later
+
+need to update the peer list after user downloads the file as the peers will increase
+
 

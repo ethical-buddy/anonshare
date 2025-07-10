@@ -54,7 +54,6 @@ func GettingFilesHandler(w http.ResponseWriter, r *http.Request, db *gorm.DB) {
 		return
 	}
 	
-
 	utils.JSONResponse(w, http.StatusOK, fileMetadata)
 	
 }
