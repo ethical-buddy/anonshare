@@ -3,15 +3,15 @@ package functions
 import (
 	"bytes"
 	"encoding/json"
-	"log"
+	
 	"net/http"
+	"log"
 	"os"
-
-	"github.com/muskiteer/anonshare/models"
 	"github.com/muskiteer/anonshare/peer/upload"
+	"github.com/muskiteer/anonshare/models"
 )
 
-func uploading_the_file(filepath string,description string,Port string) {
+func Uploading_the_file(filepath string,description string,Port string) {
 	BackendUrl := os.Getenv("BACKEND_URL")
 	if BackendUrl == "" {
 		log.Println("no BACKEND_URL environment variable detected")
@@ -50,7 +50,7 @@ func uploading_the_file(filepath string,description string,Port string) {
 	log.Println("File uploaded successfully to backend")
 }
 
-func gettings_files_info() {
+func Gettings_files_info() {
 	BackendUrl := os.Getenv("BACKEND_URL")
 	if BackendUrl == "" {
 		log.Println("no BACKEND_URL environment variable detected")
@@ -81,14 +81,27 @@ func gettings_files_info() {
 
 	log.Printf("Successfully fetched %d files from backend", len(filemetadata))
 
-	for _, file := range filemetadata {
-		log.Printf("File: %s, Size: %s, Type: %s, Hash: %s, Peers: %d",
-			"will add later to see the name from first user", file.Size, file.Type, file.Hash, len(file.Peers))
-	}
+	for i, file := range filemetadata {
+        var filename string
+        if len(file.Peers) > 0 {
+            filename = file.Peers[0].Filename
+        } else {
+            filename = "[no filename available] will so something later"
+        }
+        
+        log.Printf("📄 File %d:", i+1)
+        log.Printf("   📁 Name: %s", filename)
+	
+        log.Printf("   📏 Size: %s", file.Size)
+        log.Printf("   🏷️  Type: %s", file.Type)
+        log.Printf("   🔑 Hash: %s", file.Hash)
+        log.Printf("   👥 Peers: %d", len(file.Peers))
+        log.Println("   ────────────────────────────────────────────────────────────────────────────────────────────────")
+    }
 
 }
 
-func file_download(hash string) {
+func File_download(hash string) {
 	BackendUrl := os.Getenv("BACKEND_URL")
 	if BackendUrl == "" {
 		log.Println("no BACKEND_URL environment variable detected")
@@ -106,7 +119,7 @@ func file_download(hash string) {
 		log.Println("error marshalling payload: " + err.Error())
 		return
 	}
-	req, err := http.NewRequest("POST", url, bytes.NewBuffer(jsonPayload))
+	req, err := http.NewRequest(http.MethodGet, url, bytes.NewBuffer(jsonPayload))
 	if err != nil {
 		log.Println("error creating request: " + err.Error())
 		return

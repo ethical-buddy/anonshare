@@ -12,6 +12,12 @@ import (
 
 func HandleUpload(filePath string, description string,Peer_Port string) (models.FileMetadata,error) {
 
+	filePath, err := internal.GetAbsolutePath(filePath)
+	if err != nil {
+		log.Printf("Error getting absolute path: %v", err)
+		return models.FileMetadata{}, err
+	}
+
 	info,err := os.Stat(filePath)
 	if err != nil {
 		log.Printf("Error accessing file: %v on upload.go", err)
