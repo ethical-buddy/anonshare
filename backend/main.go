@@ -4,7 +4,6 @@ import (
 	"log"
 	"net/http"
 	"os"
-
 	"github.com/joho/godotenv"
 	"github.com/muskiteer/anonshare/backend/database"
 	"github.com/muskiteer/anonshare/backend/routes"

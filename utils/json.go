@@ -2,9 +2,7 @@ package utils
 
 import (
 	"net/http"
-	"encoding/json"
-
-	
+	"encoding/json"	
 )
 
 // utils/json_response.go

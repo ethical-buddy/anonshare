@@ -1,3 +1,4 @@
 backend/.env
 peer/.env
 backend/metadata.db
+test

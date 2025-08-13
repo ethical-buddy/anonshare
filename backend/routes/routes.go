@@ -8,7 +8,7 @@ import (
 
 func SetupRoutes(r *http.ServeMux, db *gorm.DB) http.Handler {
 	r.HandleFunc("/upload", func(w http.ResponseWriter, r *http.Request) {
-		w.Write([]byte("Received request for /upload"))
+		// w.Write([]byte("Received request for /upload"))
 		controllers.UploadHandler(w, r, db)
 	})
 	r.HandleFunc("/files", func(w http.ResponseWriter, r *http.Request) {

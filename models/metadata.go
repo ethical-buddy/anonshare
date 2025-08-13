@@ -70,8 +70,8 @@ func UploadingInDB(db *gorm.DB, fileMetadata *FileMetadata) error {
 }
 
 func GettingFilesFromDB(db *gorm.DB,fileMetadata *[]FileMetadata) (error) {
-	
-	if err := db.Find(&fileMetadata).Error; err != nil {
+
+	if err := db.Preload("Peers").Find(fileMetadata).Error; err != nil {
 		return errors.New("failed to fetch files from database")
 	}
 	return nil	

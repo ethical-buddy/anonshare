@@ -2,7 +2,6 @@ package database
 
 import (
 	"log"
-
 	"github.com/muskiteer/anonshare/models"
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
